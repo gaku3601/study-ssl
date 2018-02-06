@@ -2,6 +2,8 @@ version: '3'
 
 services:
     nginx:
-        image: nginx:1.13.8
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
         ports:
             - 80:80
