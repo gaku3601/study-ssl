@@ -3,7 +3,7 @@ version: '3'
 services:
     nginx:
         build:
-            context: ./nginx
+            context: ../
             dockerfile: Dockerfile
         ports:
             - 80:80
@@ -11,8 +11,8 @@ services:
         links:
             - nginx2
         environment:
-            MAIL: 'pro.gaku@gmail.com'
-            DOMAIN: 'takuto.gakusmemo.com'
+            MAIL: 'pro.gaku@gmail.com' # your mail address
+            DOMAIN: 'takuto.gakusmemo.com' # site domain
             STAGE: 'staging' # staging or production
             REVERSE_PROXY: 'http://nginx2'
     nginx2:
