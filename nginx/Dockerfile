@@ -20,9 +20,12 @@ RUN echo '* * * * * root date >> /var/log/cron/`date '+\\%Y-\\%m-\\%d'`.log 2>&1
 
 # nginxの設定
 ADD ./default.conf /etc/nginx/conf.d/default.conf
+ADD ./default.ssl.conf~ /etc/nginx/conf.d/default.ssl.conf~
 
 # ssl設定
 RUN mkdir /usr/share/nginx/html/ssl
+RUN chown nginx.nginx /usr/share/nginx/html/ssl
+ADD ./start.sh /start.sh
 
 
 # 起動
